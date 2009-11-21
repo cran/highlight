@@ -1,0 +1,26 @@
+useDynLib( highlight )
+
+import( parser )
+import( codetools )
+import( utils )
+
+importFrom( grDevices, rgb )
+importFrom( grDevices, colors )
+importFrom( grDevices, col2rgb )
+
+export( highlight )
+export( css.parser )
+
+export( simple_detective )
+export( dummy_detective )
+
+export( getStyleFile )
+export( renderer )
+export( styler )
+
+exportPattern( "_latex$" )
+exportPattern( "_html$" )
+exportPattern( "_verbatim$" )
+
+export( HighlightWeaveLatex )
+

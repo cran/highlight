@@ -1,0 +1,68 @@
+
+#' highlights the content of the file x
+highlight <- function( file, output = stdout(), 
+	detective = simple_detective, renderer, encoding = "unknown",
+	parser.output = parser( file, encoding = encoding ),
+	styles = detective( parser.output ),
+	expr = NULL, 
+	final.newline = FALSE,
+	showPrompts = FALSE, 
+	prompt = getOption( "prompt" ) , 
+	continue = getOption( "continue"), 
+	initial.spaces = TRUE, 
+	... ){
+	   
+	# forcing the arguments in a certain order
+	force( parser.output )
+	force( styles )
+	force( renderer )
+	
+	# only terminal symbols matter
+	data   <- subset( attr( parser.output, "data" ), terminal ) 
+	
+	# let the renderer do its thing
+	data$ftokens <- renderer$formatter(
+		tokens = renderer$translator( as.character( data[, "text"] ) ), 
+		styles = styles )
+	
+	# useful to only render a given expression and not all of them.
+	# this is mainly used in the sweave driver
+	# FIXME: maybe the renderer should be applied after the subset
+	if( !is.null( expr ) ){
+		ids <- getChilds( parser.output, expr )
+		data <- data[ data$id %in% ids, , drop = FALSE ]
+		startline <- as.integer( data[1, "line1" ] )
+	} else{
+		startline <- 1L
+	}
+	
+	# paste everything together in C (for efficiency)
+	highlighted_text <- c( if( !is.null(renderer$header) ) renderer$header(), 
+		.Call( "get_highlighted_text", 
+			data$ftokens, 
+			data$token, 
+			data$line1, 
+			data$line2, 
+			data$col1, 
+			data$col2, 
+			data$byte1, 
+			data$byte2, 
+			startline, 
+			max(data$line2) , 
+			renderer$space(), 
+			renderer$newline(), 
+			if( showPrompts) renderer$formatter( renderer$translator( prompt ) , "prompt" ) else "", 
+			if( showPrompts) renderer$formatter( renderer$translator( continue ) , "prompt" ) else "",
+			initial.spaces = initial.spaces, 
+			PACKAGE = "highlight" ), 
+		if( !is.null(renderer$footer) ) renderer$footer() )
+	
+	# maybe write the result to the output connection
+	if( !is.null(output) ){
+		try( writeLines( highlighted_text, output, sep = "" ), silent = TRUE )
+	}
+	invisible( highlighted_text )
+}
+
+# :tabSize=4:indentSize=4:noTabs=false:folding=explicit:collapseFolds=1:
+

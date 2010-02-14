@@ -17,8 +17,13 @@ highlight <- function( file, output = stdout(),
 	force( styles )
 	force( renderer )
 	
+	if( !inherits( parser.output, "parser")){
+		stop( "wrong data in `parser.output`, maybe you used parse instead of parser" )
+	}
+	
 	# only terminal symbols matter
-	data   <- subset( attr( parser.output, "data" ), terminal ) 
+	data   <- attr( parser.output, "data" )
+	data   <- data[ data[["terminal"]], ] 
 	
 	# let the renderer do its thing
 	data$ftokens <- renderer$formatter(
@@ -39,14 +44,7 @@ highlight <- function( file, output = stdout(),
 	# paste everything together in C (for efficiency)
 	highlighted_text <- c( if( !is.null(renderer$header) ) renderer$header(), 
 		.Call( "get_highlighted_text", 
-			data$ftokens, 
-			data$token, 
-			data$line1, 
-			data$line2, 
-			data$col1, 
-			data$col2, 
-			data$byte1, 
-			data$byte2, 
+			data, 
 			startline, 
 			max(data$line2) , 
 			renderer$space(), 

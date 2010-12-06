@@ -36,11 +36,14 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
     ## of an Sweave driver.  evalFunc will be used for the
     ## actual evaluation of chunk code.
     HighlightWeaveLatexRuncode <- function(object, chunk, options) {
-      	  
+      	 if( grepl( "#line [0-9]", chunk[1L] ) ){
+      	  	   chunk <- chunk[-1L]
+      	  	   attr(chunk, "srclines" ) <- attr(chunk, "srclines" )[-1L]
+      	  }
       	  if( "lang" %in% names(options)){
       	  	  if( private[["has_highlight"]] ){
-      	  	  	  tf <- sprintf( "%s.%s", tempfile(), options$lang )
-      	  	  		writeLines( chunk, tf )
+      	  	  	   tf <- sprintf( "%s.%s", tempfile(), options$lang )
+      	  	  	   writeLines( chunk, tf )
       	  	  		tf2 <- tempfile()
       	  	  		cmd <- sprintf( '%s --input="%s" --output="%s" -L --pretty-symbols', shQuote(private[["highlight"]]), tf, tf2 )
       	  	  		system( cmd )
@@ -48,10 +51,15 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
       	  	  		size <- if( "size" %in% names(options) ) LATEX_SIZES[ pmatch( options$size, LATEX_SIZES) ] else "normalsize"
       	  	  		tex <- gsub( "hlbox", sprintf( "hl%sbox", size ), tex, fixed = TRUE ) 
       	  	  		keep <- seq( which( tex == "\\noindent" ), which( tex == "\\normalfont" ) )
-			  		tex <- c( 
-			  			"\\vspace{1em}\\noindent\\fbox{\\begin{minipage}{0.9\\textwidth}" , 
-			  			tex[ keep ],
-			  			"\\end{minipage}}\\vspace{1em}" )
+			  		tex <- tex[ keep ]
+			  		tex[ length(tex) - 2L ] <- sub( "\\\\\\\\$", "", tex[ length(tex) - 2L ] )
+      	  	  		tex <- c(
+			  			sprintf( "\\begin{%s}", size ), 
+			  			"\\begin{Hchunk}" , 
+			  			tex ,
+			  			"\\end{Hchunk}\\vspace{1em}", 
+			  			sprintf( "\\end{%s}", size )
+			  		)
               		writeLines( tex, object$output )
               } else {
               	  writeLines( "\\begin{verbatim}", object$output )
@@ -126,8 +134,11 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 		    lastshown <- srcline - 1L
 		  thisline <- 0
 		  
-		  		if( options$echo ) cat("\\begin{Hchunk}\n",
-	                 file=chunkout, append=TRUE)
+		  if( options$echo ) {
+		  	  cat("\\begin{Hchunk}\n",file=chunkout, append=TRUE)
+		  	  size <- if( "size" %in% names(options) ) LATEX_SIZES[ pmatch( options$size, LATEX_SIZES) ] else "normalsize"
+      	  	  cat( sprintf( "\\begin{%s}\n", size ), file = chunkout, append = TRUE )		
+		  }
 	                 
 	          for(nce in 1L:length(chunkexps)) {
 				     ce <- chunkexps[[nce]]
@@ -166,8 +177,7 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 							openSinput <- TRUE
 						 }
 						
-						cat("\\begin{Hinput}",
-							file=chunkout, append=TRUE)
+						cat("\\begin{Hinput}", file=chunkout, append=TRUE)
 						cat("\n", file = chunkout, append = TRUE )
 						showPrompts <- options$prompt
 						size <- if( "size" %in% names(options) ) options$size else "normalsize"
@@ -180,7 +190,7 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 							showPrompts = if( !is.null(showPrompts) ) isTRUE(showPrompts) else TRUE , 
 							initial.spaces = FALSE, 
 							size = size )
-						cat("\n\\end{Hinput}\n", file=chunkout, append=TRUE)
+						cat("\\end{Hinput}\n\n", file=chunkout, append=TRUE)
 	                   
 						linesout[thisline + 1L:length(dce)] <- srcline
 						thisline <- thisline + length(dce)
@@ -217,7 +227,7 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 	                            thisline <- thisline + 1L
 	                            openSchunk <- TRUE
 	                        }
-	                        cat("\n\\begin{Houtput}\n",
+	                        cat("\\begin{Houtput}\n",
 	                            file=chunkout, append=TRUE)
 	                        linesout[thisline + 1L] <- srcline
 	                        thisline <- thisline + 1L
@@ -234,8 +244,10 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 						if( options$results == "verbatim" ){
 							cat( paste( renderer$header(), collapse = "\n" ), file = chunkout, append = TRUE)
 							output. <- strsplit( output, "\n" )[[1]]
-							cat( paste( paste( renderer$translator(output.), renderer$newline(), sep = ""), collapse = "") , 
-								file=chunkout, append=TRUE )
+							size <- if( "size" %in% names(options) ) LATEX_SIZES[ pmatch( options$size, LATEX_SIZES) ] else "normalsize"
+      	  	  				tex <- paste( renderer$translator(output., size = size), renderer$newline(), sep = "")
+      	  	  				tex[ length(tex ) ] <- sub( "\\\\\\\\\n\\\\hlstd", "\\\\hlstd", tex[length(tex)] )
+      	  	  				cat( paste(tex, collapse="") , file=chunkout, append=TRUE )
 							remove( output.) 
 							cat( paste( renderer$footer(), collapse = "\n" ), file = chunkout, append = TRUE )
 						 } else{
@@ -250,7 +262,7 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 	                    remove(output)
 	
 	                    if(options$results=="verbatim"){
-	                        cat("\n\\end{Houtput}\n", file=chunkout, append=TRUE)
+	                        cat("\\end{Houtput}\n", file=chunkout, append=TRUE)
 	                        linesout[thisline + 1L:2] <- srcline
 	                        thisline <- thisline + 2L
 	                    }
@@ -258,7 +270,11 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 					if( options$echo ) cat("\n", file = chunkout, append = TRUE)
 	            }
 	
-			if( options$echo ) 	cat("\\end{Hchunk}\n", file=chunkout, append=TRUE)
+	            if( options$echo ){
+	            	size <- if( "size" %in% names(options) ) LATEX_SIZES[ pmatch( options$size, LATEX_SIZES) ] else "normalsize"
+	            	cat( sprintf( "\\end{%s}\n", size ), file = chunkout, append = TRUE )
+	            	cat("\\end{Hchunk}\n\n", file=chunkout, append=TRUE)
+	            }
 	          
 	#          if(openSinput){
 	#			  cat("\n\\end{Hinput}\n", file=chunkout, append=TRUE)

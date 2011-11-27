@@ -1,3 +1,15 @@
+0.3.0   2011-11-27
+
+   o    Using sprintf instead of snprintf to make Solaris happy
+   
+   o    New R function external_highlight that uses the C++ code from Andre
+   Simon highlight library. The code is called directly, no more using a system 
+   dependency as before. 
+
+0.2-6   2010-04-11
+
+   o    small bug fixed in the latex renderer. Reported by Collin Gillepsie.
+
 0.2-5   2010-12-06
 
    o    superfluous lines were added at the end of code chunks in the sweave

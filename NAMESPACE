@@ -1,7 +1,7 @@
 DLL <- useDynLib( highlight )
 
 importClassesFrom( Rcpp, "C++Object", "C++Class", "Module" )
-importFrom( Rcpp, Module )
+importFrom( Rcpp, Module, loadRcppModules )
 
 import( parser )
 import( codetools )
@@ -27,4 +27,8 @@ exportPattern( "_verbatim$" )
 
 export( HighlightWeaveLatex )
 export( highlight.httpd.handler )
+
+export( external_highlight )
+export( highlight_output_types )
+export( highlight_themes )
 

@@ -1,8 +1,8 @@
 Package: highlight
 Type: Package
 Title: Syntax highlighter
-Version: 0.3.0
-Date: 2011-11-27
+Version: 0.3.1
+Date: 2011-12-05
 Author: Romain Francois
 Maintainer: Romain Francois <romain@r-enthusiasts.com>
 Description: Syntax highlighter for R code based 
@@ -16,6 +16,6 @@ LinkingTo: Rcpp
 URL: http://r-forge.r-project.org/projects/highlight/,
         http://romainfrancois.blog.free.fr/index.php?category/R-package/highlight
 RcppModules: highlight
-Packaged: 2011-12-02 08:30:00 UTC; romain
+Packaged: 2011-12-05 15:35:44 UTC; romain
 Repository: CRAN
-Date/Publication: 2011-12-02 16:22:57
+Date/Publication: 2011-12-05 18:56:30

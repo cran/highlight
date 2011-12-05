@@ -1,6 +1,6 @@
-34d6c238672c6be934f62431efb5dbc4 *DESCRIPTION
+0aba51bf2e7c1542f122ebe664a6c7a8 *DESCRIPTION
 b0767675d21852735431652cb9182f05 *NAMESPACE
-fa7b3658a725bf11d5637b316de40963 *NEWS
+70ca29f20b83036c6ed0a23c4cc4f56d *NEWS
 8d42e1d30cc3055bc73fe9e48b63cc4f *R/00_sizes.R
 1dfb7faa35fb41d8c3c0ab5958d5b406 *R/SweaveLatexDriver.R
 b1d32457922527c7734c9f3a15aacbf3 *R/css.R
@@ -8,9 +8,9 @@ b1279d8045a17cfe6581431b1d195904 *R/detectives.R
 925c0757d1102353062483c7b5f4f093 *R/external_highlight.R
 6914110b9986299878198d6c14c33757 *R/highlight.R
 7e0b6b75feb9be4ef41f6fabe771212b *R/httpd.R
-17b9ece71964274f7cf1598cccf5e7f0 *R/renderer.R
+8b69d806eba55d012960d0a41f8debb6 *R/renderer.R
 6090fdcaa735e54119c67e9bafd4fcdd *R/zzz.R
-d89ad8f12aaa01944665f232debae114 *build/highlight.pdf
+96f9bbb08e3fe390463b4f83511e0100 *build/highlight.pdf
 6a235e1910dc0c5dc987c7bcbdb59cf6 *inst/highlight/filetypes.conf
 17db7960d61a78253dd3ffde4fe34c1f *inst/highlight/langDefs/4gl.lang
 8251fdda0b7a6a773ef8014cda6d0601 *inst/highlight/langDefs/a4c.lang
@@ -222,7 +222,7 @@ da51d8fa2c901dc1852563b9924f9a9e *man/external_highlight.Rd
 b05e6b54950e6c61ca0c8a194a01af2c *man/getStyleFile.Rd
 aa2a470c195ff81c405436628d2dcd0e *man/header_html.Rd
 76adf1820179c674e3a4b11fd4894c3c *man/header_latex.Rd
-510699c5c263eeaa6759532e932e66e8 *man/highlight-package.Rd
+935dea9cd5f112cd017bcc1ea4be63a2 *man/highlight-package.Rd
 29cf02b62895849b9e4a90195917a9a4 *man/highlight.Rd
 be992c895f2a4823a7dd207f8beb53bf *man/highlight.httpd.handler.Rd
 243c5b79ee48210a4989f2cb9b21e85b *man/highlight_output_types.Rd

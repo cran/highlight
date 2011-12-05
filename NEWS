@@ -1,3 +1,8 @@
+0.3.1   2011-12-05
+
+   o    Bug fix in the html renderer. Thanks to @tonybreyal for pointing out
+        the bug on twitter. 
+
 0.3.0   2011-11-27
 
    o    Using sprintf instead of snprintf to make Solaris happy

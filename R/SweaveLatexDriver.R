@@ -14,7 +14,7 @@ HighlightWeaveLatexCheckOps <- function(options){
 }
 
 # {{{ HighlightWeaveLatex: driver
-HighlightWeaveLatex <- function(boxes=FALSE, bg = rgb( 0.95,0.95,0.95, max = 1 ), border = "black", 
+HighlightWeaveLatex <- function(boxes=FALSE, bg = rgb( 0.95,0.95,0.95, maxColorValue = 1 ), border = "black", 
 	highlight.options = list( boxes = boxes, bg = bg, border = border )
 ) {
 	list(setup      = RweaveLatexSetup,

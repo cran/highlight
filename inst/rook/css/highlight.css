@@ -1,3 +1,10 @@
+
+#code{
+    font-size: large ;
+    color: red ;
+}
+
+
 .number{
 	color: rgb(21,20,181) ;
 }
@@ -59,3 +66,4 @@
 .line{
     color: gray ;   
 }
+

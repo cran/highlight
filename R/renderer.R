@@ -129,6 +129,7 @@ formatter_latex <- function( tokens, styles, ... ){
 		s( "`"      , "\\usebox{\\hlboxbacktick}" )
 		s( " "      , "{\\ }" )
 		s( "\n"     , newline_latex() )
+		s( '"', '"{}' )
 		x
 	}
 	formals(f)[[2]] <- LATEX_SIZES
@@ -202,7 +203,7 @@ paste( "
 \\newcommand{\\hlcom}[1]{\\textcolor[rgb]{0.51,0.51,0.51}{\\it{#1}}}
 \\newcommand{\\hldir}[1]{\\textcolor[rgb]{0,0.51,0}{#1}}
 \\newcommand{\\hlsym}[1]{\\textcolor[rgb]{0,0,0}{#1}}
-\\newcommand{\\hlline}[1]{\\textcolor[rgb]{0.33,0.33,0.33}{#1}}
+% \\newcommand{\\hlline}[1]{\\textcolor[rgb]{0.33,0.33,0.33}{#1}}
 \\newcommand{\\hlkwa}[1]{\\textcolor[rgb]{0,0,0}{\\bf{#1}}}
 \\newcommand{\\hlkwb}[1]{\\textcolor[rgb]{0.51,0,0}{#1}}
 \\newcommand{\\hlkwc}[1]{\\textcolor[rgb]{0,0,0}{\\bf{#1}}}
@@ -213,33 +214,32 @@ paste( "
   
 header_latex <- function( document, styles, boxes, minipage = FALSE ){
 	function( ){
-		txt <- "" ; rm( "txt", envir= environment() )
-		con <- textConnection( "txt", open = "w" )
-		add <- function( ... ){
-			cat( paste( ..., sep = "\n" ), file = con )
+		txt <- ""
+		add <- function( txt, ... ){
+			sprintf( "%s\n%s", txt, cat( paste( ..., sep = "\n" ) ) )
 		}
 		if( document ){
-			add( '\\documentclass{article}',
+			txt <- add( txt, 
+				'\\documentclass{article}',
 				'\\usepackage{color}', 
 				'\\usepackage{alltt}\n\\usepackage{hyperref}',
 				paste( styles, collapse = "\n")
 				)
 		}
 		if( document ){
-			add( boxes )
-			add( '\\begin{document}\n' )
+			txt <- add( txt, boxes )
+			txt <- add( txt, '\\begin{document}\n' )
 		}
 		if( isTRUE(minipage) ){
-			add( "\\vspace{1em}\\noindent\\fbox{\\begin{minipage}{0.9\\textwidth}" )
+			txt <- add( txt, "\\vspace{1em}\\noindent\\fbox{\\begin{minipage}{0.9\\textwidth}" )
 		}
-		add( '\\ttfamily\\noindent' )
-		close( con )
-		paste( txt, "\n", sep = "" )
+		txt <- add( txt, '\\ttfamily\\noindent\n' )
+		txt
 	}
 }
 
 footer_latex <- function( document, minipage = FALSE ){
-	extra <- if(isTRUE(minipage)) "\\end{minipage}}\\vspace{1em}" else ""
+	extra <- if(isTRUE(minipage)) "\\end{minipage}}\\vspace{1em}" else "\n"
 	if( document ) {
 		function() {
 			sprintf( "\\mbox{}\n\\normalfont\n%s\\end{document}\n", extra )

@@ -3,8 +3,12 @@ latex_color <- function( name = col, col  = "white"){
 	sprintf( "\\definecolor{%s}{rgb}{%s}", name, paste(as.vector(col2rgb(col))/255, collapse = "," ) )
 }
 
+should_use_external_highlight <- function(options){
+	any( c("lang", "file" ) %in% names(options) )	
+}
+
 HighlightWeaveLatexCheckOps <- function(options){
-	if( "lang" %in% names(options) ){
+	if( should_use_external_highlight(options) ){
 		options
 	} else {
 		if( "size" %in% names(options) ) {
@@ -40,14 +44,18 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
       	  	   chunk <- chunk[-1L]
       	  	   attr(chunk, "srclines" ) <- attr(chunk, "srclines" )[-1L]
       	  }
-      	  if( "lang" %in% names(options)){
-      	  	 tex <- external_highlight( chunk, lang = options$lang, type = "LATEX" )
+      	  if( should_use_external_highlight(options) ){
+      	  	  if( "file" %in% names(options) ){
+      	  	  	  chunkfile <- options[["file"]]
+      	  	  } else {
+      	  	  	  chunkfile <- sprintf( "%s.%s", tempfile(), options[["lang"]] )
+      	  	  	  writeLines( chunk, chunkfile )   
+      	  	  }
+      	  	 tex <- external_highlight( chunkfile, outfile = NULL, 
+      	  	 	type = "LATEX", doc = FALSE )
       	  	 
       	  	 size <- if( "size" %in% names(options) ) LATEX_SIZES[ pmatch( options$size, LATEX_SIZES) ] else "normalsize"
       	  	 tex <- gsub( "hlbox", sprintf( "hl%sbox", size ), tex, fixed = TRUE ) 
-      	  	 keep <- seq( which( tex == "\\noindent" ), which( tex == "\\normalfont" ) )
-			 tex <- tex[ keep ]
-			 tex[ length(tex) - 2L ] <- sub( "\\\\\\\\$", "", tex[ length(tex) - 2L ] )
       	  	 
 			 tex <- c(
 			 		sprintf( "\\begin{%s}", size ), 
@@ -101,11 +109,11 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 	
 	          SweaveHooks(options, run=TRUE)
 	
-	          chunkexps <- try(parse(text=chunk), silent=TRUE)
+	          chunkexps <- try(parse(text=chunk, keep.source = TRUE), silent=TRUE)
 			  RweaveTryStop(chunkexps, options)
-	          parser.output <- try( parser(text = chunk ), silent = TRUE )
+	          parse.output <- try( parse(text = chunk, keep.source = TRUE ), silent = TRUE )
 			  
-			  styles <- simple_detective( parser.output )
+			  styles <- simple_detective( parse.output )
 			  renderer <- renderer_latex( document = FALSE )
 			  
 	          openSinput <- FALSE
@@ -173,14 +181,16 @@ makeHighlightWeaveLatexCodeRunner <- function(evalFunc=RweaveEvalWithOpt, highli
 						showPrompts <- options$prompt
 						size <- if( "size" %in% names(options) ) options$size else "normalsize"
 						highlight( output = chunkout, 
-		 					parser.output = parser.output, 
+		 					parse.output = parse.output, 
 		 					styles = styles, 
 		 					expr = nce, 
 		 					renderer = renderer, 
 							final.newline = FALSE, 
 							showPrompts = if( !is.null(showPrompts) ) isTRUE(showPrompts) else TRUE , 
 							initial.spaces = FALSE, 
-							size = size )
+							size = size, 
+							show_line_numbers = options$show_line_numbers
+							)
 						cat("\\end{Hinput}\n\n", file=chunkout, append=TRUE)
 	                   
 						linesout[thisline + 1L:length(dce)] <- srcline
@@ -405,7 +415,7 @@ latex_color("highlightBorder", highlight.options$border )
                       cmdloc+attr(cmdloc, "match.length")-1L)
         cmd <- sub(object$syntax$docexpr, "\\1", cmd)
         if(object$options$eval){
-            val <- as.character(eval(parse(text=cmd), envir=.GlobalEnv))
+            val <- as.character(eval(parse(text=cmd, keep.source = TRUE), envir=.GlobalEnv))
             ## protect against character(0L), because sub() will fail
             if(length(val) == 0L) val <- ""
         }

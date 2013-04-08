@@ -68,8 +68,7 @@ ConfigurationReader::ConfigurationReader ( const string & configuration_path )
 						// if parameter already exists, make it unique
 						if ( parameterMap.count ( paramName ) )
 						{
-						    // was snprintf, but that is not in C++98
-							sprintf ( suffix, "#%05d", ++i );
+							snprintf ( suffix, sizeof ( suffix ), "#%05d", ++i );
 							paramName+=suffix;
 						}
 						parameterNames.push_back ( paramName );

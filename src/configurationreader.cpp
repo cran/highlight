@@ -33,6 +33,7 @@ along with Highlight.  If not, see <http://www.gnu.org/licenses/>.
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cstdio>
 
 #include "stringtools.h"
 
@@ -68,7 +69,8 @@ ConfigurationReader::ConfigurationReader ( const string & configuration_path )
 						// if parameter already exists, make it unique
 						if ( parameterMap.count ( paramName ) )
 						{
-							snprintf ( suffix, sizeof ( suffix ), "#%05d", ++i );
+							// snprintf ( suffix, sizeof ( suffix ), "#%05d", ++i );
+							sprintf ( suffix, "#%05d", ++i );
 							paramName+=suffix;
 						}
 						parameterNames.push_back ( paramName );

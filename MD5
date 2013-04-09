@@ -1,6 +1,6 @@
-02fdf3ef3995390dc4ed67a31912f6b0 *DESCRIPTION
+d1d07da4122d6078e12890cae41480ec *DESCRIPTION
 f73e432767fe01e27ebf0b9491f6c297 *NAMESPACE
-5753af23d217a4ec99ac85721f0b2e64 *NEWS
+a8cd0aea5e6facbe01aa9177f96f81b6 *NEWS
 8d42e1d30cc3055bc73fe9e48b63cc4f *R/00_sizes.R
 9b19fdf7336d3b0136d991a0314f04e6 *R/SweaveLatexDriver.R
 b1d32457922527c7734c9f3a15aacbf3 *R/css.R
@@ -10,7 +10,7 @@ edf0321fb8246a9a7dd12e2f7dc60e03 *R/highlight.R
 f6e54768be62ea41c51607225856d499 *R/httpd.R
 c9300d7cbd29d9fcc0df24b74eb7e86a *R/renderer.R
 3b434e5637c4ace4bfceaf1f5722fd68 *R/zzz.R
-6e2c74ba5fc212efc8731d4fdd42520e *build/highlight.pdf
+b4c91d66a0eabec8c146b6d3bec1c2c4 *build/highlight.pdf
 6a235e1910dc0c5dc987c7bcbdb59cf6 *inst/highlight/filetypes.conf
 17db7960d61a78253dd3ffde4fe34c1f *inst/highlight/langDefs/4gl.lang
 8251fdda0b7a6a773ef8014cda6d0601 *inst/highlight/langDefs/a4c.lang
@@ -227,7 +227,7 @@ a2b68dea959f1ffc57baf3872a5f9b86 *inst/stylesheet/default.css
 b05e6b54950e6c61ca0c8a194a01af2c *man/getStyleFile.Rd
 aa2a470c195ff81c405436628d2dcd0e *man/header_html.Rd
 76adf1820179c674e3a4b11fd4894c3c *man/header_latex.Rd
-86cc26303918917677ba08d1b8a0359a *man/highlight-package.Rd
+40e11e0bb55107fe26bebb910c28c036 *man/highlight-package.Rd
 b870841a1e4f8b42b2043c3857494f91 *man/highlight.Rd
 be992c895f2a4823a7dd207f8beb53bf *man/highlight.httpd.handler.Rd
 243c5b79ee48210a4989f2cb9b21e85b *man/highlight_output_types.Rd
@@ -260,7 +260,7 @@ cf05a9905feefe9c09f10f90c7884701 *src/astyle.h
 0e809b7ab03e968364330cc6f85cbfbb *src/charcodes.h
 c5c783db111bcf98d77fd4866388a7ec *src/codegenerator.cpp
 6a6a16bb40e3c9723d88eede05b5985a *src/codegenerator.h
-7f0ea73fb6bfcba4f7f90f619ed84525 *src/configurationreader.cpp
+34cecc87745b5f3d041adeebd370c685 *src/configurationreader.cpp
 fe5b1aceba7639794779d8b7178ee169 *src/configurationreader.h
 e4814f028988998b173e439db36d8414 *src/ctagsreader.cpp
 e6c23311a52e6ae5f0bf4b597ec38dad *src/ctagsreader.h

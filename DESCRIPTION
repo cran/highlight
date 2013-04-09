@@ -1,8 +1,8 @@
 Package: highlight
 Type: Package
 Title: Syntax highlighter
-Version: 0.4.0
-Date: 2013-04-08
+Version: 0.4.1
+Date: 2013-04-09
 Author: Romain Francois
 Maintainer: Romain Francois <romain@r-enthusiasts.com>
 Description: Syntax highlighter for R code based on the results of the
@@ -11,7 +11,7 @@ Description: Syntax highlighter for R code based on the results of the
 License: GPL (>= 2)
 Depends: R (>= 3.0.0), tools, codetools, utils
 URL: http://highligh.r-enthusiasts.com
-Packaged: 2013-04-08 15:38:32 UTC; romain
+Packaged: 2013-04-09 11:45:25 UTC; romain
 NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2013-04-08 18:12:20
+Date/Publication: 2013-04-09 13:58:41

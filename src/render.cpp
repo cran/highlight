@@ -34,8 +34,8 @@ extern "C" SEXP get_highlighted_text(
 	int* col1       = INTEGER( VECTOR_ELT( data, 1 ) );
 	int* line2      = INTEGER( VECTOR_ELT( data, 2 ) ); 
 	int* col2       = INTEGER( VECTOR_ELT( data, 3 ) ); 
-	int* top_level  = INTEGER( VECTOR_ELT( data, 9 ) );
-	SEXP tokens     = VECTOR_ELT( data , 10) ;
+	int* top_level  = INTEGER( VECTOR_ELT( data, 10 ) );
+	SEXP tokens     = VECTOR_ELT( data , 11) ;
 	
 	int end   = INTEGER(end_)[0] ;
 	int start = INTEGER(start_)[0] ;
@@ -53,7 +53,7 @@ extern "C" SEXP get_highlighted_text(
 	int n = Rf_length( tokens ) ;
 	
 	int line = start ;
-	int col = 0; 
+	int col = 1; 
 	int i = 0, j = 0 ;
 	int nspaces = 0 ;
 	
@@ -90,7 +90,7 @@ extern "C" SEXP get_highlighted_text(
 				
 			}
 			line = line1[i];
-			col  = 0 ;
+			col  = 1 ;
 		}
 		 
 		/* move right as many spaces as needed */
@@ -107,7 +107,7 @@ extern "C" SEXP get_highlighted_text(
 		initial = 0;
 		
 		/* set the current positions */ 
-		col  = col2[i];
+		col  = col2[i]+1;
 		line = line2[i];
 	}
 	

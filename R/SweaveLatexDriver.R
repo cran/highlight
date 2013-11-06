@@ -428,7 +428,7 @@ latex_color("highlightBorder", highlight.options$border )
     while(length(pos <- grep(object$syntax$docopt, chunk))){
         opts <- sub(paste(".*", object$syntax$docopt, ".*", sep=""),
                     "\\1", chunk[pos[1L]])
-        object$options <- utils:::SweaveParseOptions(opts, object$options,
+        object$options <- SweaveParseOptions(opts, object$options,
                                              HighlightWeaveLatexCheckOps )
         if (isTRUE(object$options$concordance)
               && !object$haveconcordance) {
@@ -456,7 +456,7 @@ HighlightWeaveLatexWritedoc
 
 # {{{ Hweave
 HweaveSyntaxNoweb <- SweaveSyntaxNoweb
-HweaveSyntaxNoweb$extension <- "[.][rRsShH]nw$"
+HweaveSyntaxNoweb$extension <- "\\.[hHrsRS]?nw$"
 
 Hweave <- function (file, driver = HighlightWeaveLatex(), syntax = HweaveSyntaxNoweb, encoding = "", ...){
     	Sweave( file, driver = driver, syntax = syntax, encoding = encoding, ... )
@@ -475,7 +475,7 @@ HighlightTangle <- function(){
 	driver
 }
 Htangle <- function (file, driver = HighlightTangle(), syntax = HweaveSyntaxNoweb, encoding = "", ...){
-	Sweave(file = file, driver = driver, syntax = syntax, encoding = encoding, ...)
+	Sweave(file = file, driver = driver, encoding = encoding, ...)
 }
 # }}}
 

@@ -5,7 +5,7 @@ Description: Syntax highlighter for R code based
 	on the results of the R parser. Rendering in HTML and latex 
 	markup. Custom Sweave driver performing syntax highlighting 
 	of R code chunks.
-Version: 0.4.5
+Version: 0.4.7
 Authors@R: c( 
   person("Romain", "Francois",, "romain@r-enthusiasts.com", c("aut", "cre") ),
   person("Andre", "Simon",, "andre.simon1@gmx.de", "ctb" )
@@ -16,9 +16,9 @@ Imports: grDevices, tools
 URL: https://github.com/romainfrancois/highlight
 BugReports: https://github.com/romainfrancois/highlight/issues
 NeedsCompilation: yes
-Packaged: 2015-04-14 17:18:47 UTC; romain
+Packaged: 2015-04-19 15:31:50 UTC; romain
 Author: Romain Francois [aut, cre],
   Andre Simon [ctb]
 Maintainer: Romain Francois <romain@r-enthusiasts.com>
 Repository: CRAN
-Date/Publication: 2015-04-15 12:42:24
+Date/Publication: 2015-04-20 07:26:22

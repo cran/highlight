@@ -530,7 +530,7 @@ HweaveSyntaxNoweb$extension <- "\\.[hHrsRS]?nw$"
 #' @rdname Hweave
 #' @export
 Hweave <- function (file, driver = HighlightWeaveLatex(), syntax = HweaveSyntaxNoweb, encoding = "", ...){
-    	Sweave( file, driver = driver, syntax = syntax, encoding = encoding, ... )
+    Sweave( file, driver = driver, syntax = syntax, encoding = encoding, ... )
 }
 
 HighlightTangle <- function(){

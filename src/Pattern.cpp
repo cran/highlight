@@ -49,6 +49,9 @@ const unsigned long Pattern::UNIX_LINE_MODE         = 0x10;
 #ifdef _WIN32
   #define str_icmp stricmp
 #else
+  #if defined(__SUNPRO_CC) && __cplusplus < 201103L
+extern "C" { extern int strcasecmp(const char *, const char *);}
+  #endif
   #define str_icmp strcasecmp
 #endif
 

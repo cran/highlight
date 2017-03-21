@@ -1,5 +1,5 @@
-4c46ba5631c47d3c4e480590c12d8f77 *DESCRIPTION
-3911cd65761178707709e2a99f389d4d *NAMESPACE
+2aadae70f402c78f3e646f5a254ea5d9 *DESCRIPTION
+6775cdf7ac5e0fa44772d74ba813cc11 *NAMESPACE
 1b940d5596379552b9f9b5b8a64462cd *NEWS
 8d42e1d30cc3055bc73fe9e48b63cc4f *R/00_sizes.R
 99d9489bf601dddd5b60d44ff190c948 *R/SweaveLatexDriver.R
@@ -243,7 +243,7 @@ da9e721752e80bac65fe93ff8190e382 *src/Makevars
 da9e721752e80bac65fe93ff8190e382 *src/Makevars.win
 8086bfd0b16c509a41398cf7cfa44acf *src/Matcher.cpp
 cd9a980038e4885a6aaae8a974d0ff6d *src/Matcher.h
-661532e21b933df9f81be565d767d374 *src/Pattern.cpp
+518a6d1dcd77e00a733580596a6b803a *src/Pattern.cpp
 f64ae01e7c4c658ebc22132f3acc78be *src/Pattern.h
 d9ce9b18e31c3322bf613de93b2a9a21 *src/ansigenerator.cpp
 f85dd3ea8384a98cb928ddfef63f2c44 *src/ansigenerator.h
@@ -267,6 +267,7 @@ f29b81b5dd18de3266e33de02328885c *src/enums.h
 c557f3444b6e51e04e3ec25d8583891a *src/highlight_wrapper.cpp
 f7bf95ab42691be761adc2ac0de85565 *src/htmlgenerator.cpp
 30c54317d0396267608f5c1b6daac8a3 *src/htmlgenerator.h
+71d32afb11ac660bf682482eb9ed8b0b *src/init.c
 7f49838452258678e520cf8c940fc3b8 *src/languagedefinition.cpp
 984f966e90011bc5fd3d7da449e6fe9c *src/languagedefinition.h
 9b7df0e851ca3d2368fced02f32a933f *src/latexgenerator.cpp

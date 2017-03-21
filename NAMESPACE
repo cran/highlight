@@ -27,9 +27,10 @@ export(styler)
 export(styler_assistant_latex)
 export(translator_html)
 export(translator_latex)
-importFrom(grDevices,dev.off)
-importFrom(grDevices,pdf)
-importFrom(grDevices,postscript)
-importFrom(grDevices,rgb)
+importFrom(grDevices, dev.off, pdf, postscript, rgb,  "col2rgb", "colors")
 importFrom(tools,vignetteEngine)
+importFrom("utils", "Rtangle", "RweaveChunkPrefix",
+           "RweaveEvalWithOpt", "RweaveLatexFinish",
+           "RweaveLatexOptions", "RweaveLatexSetup", "RweaveTryStop",
+           "Sweave", "SweaveHooks", "getParseData", "tail")
 useDynLib(highlight)

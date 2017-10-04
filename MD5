@@ -1,4 +1,4 @@
-2aadae70f402c78f3e646f5a254ea5d9 *DESCRIPTION
+3f5eda74e791178971d7fcf84e2a1020 *DESCRIPTION
 6775cdf7ac5e0fa44772d74ba813cc11 *NAMESPACE
 1b940d5596379552b9f9b5b8a64462cd *NEWS
 8d42e1d30cc3055bc73fe9e48b63cc4f *R/00_sizes.R
@@ -253,7 +253,7 @@ cf05a9905feefe9c09f10f90c7884701 *src/astyle.h
 0e809b7ab03e968364330cc6f85cbfbb *src/charcodes.h
 d43777ed13ce39f8ce241cec6f68c399 *src/codegenerator.cpp
 6a6a16bb40e3c9723d88eede05b5985a *src/codegenerator.h
-bb82387de1d9711405c43c50bf45be08 *src/configurationreader.cpp
+9795150174c0dae4cb606250e8945696 *src/configurationreader.cpp
 fe5b1aceba7639794779d8b7178ee169 *src/configurationreader.h
 e4814f028988998b173e439db36d8414 *src/ctagsreader.cpp
 e6c23311a52e6ae5f0bf4b597ec38dad *src/ctagsreader.h

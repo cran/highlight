@@ -50,7 +50,7 @@ ConfigurationReader::ConfigurationReader ( const string & configuration_path )
 		size_t lineBegin;
 		size_t delimPos;
 		string paramName;
-		char suffix[10];
+		char suffix[12]; // %05d can write 10 bytes
 		int i=0;
 
 		while ( getline ( in, line ) )

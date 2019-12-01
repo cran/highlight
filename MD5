@@ -1,4 +1,4 @@
-3f5eda74e791178971d7fcf84e2a1020 *DESCRIPTION
+fb2f30fb4ab847bb92b6bebbbf94d913 *DESCRIPTION
 6775cdf7ac5e0fa44772d74ba813cc11 *NAMESPACE
 1b940d5596379552b9f9b5b8a64462cd *NEWS
 8d42e1d30cc3055bc73fe9e48b63cc4f *R/00_sizes.R
@@ -251,7 +251,7 @@ cf05a9905feefe9c09f10f90c7884701 *src/astyle.h
 4c84dddf5ebf19c0bea749289ad6ff1d *src/bbcodegenerator.cpp
 923c9f90fc65727c296799cf8b7607de *src/bbcodegenerator.h
 0e809b7ab03e968364330cc6f85cbfbb *src/charcodes.h
-d43777ed13ce39f8ce241cec6f68c399 *src/codegenerator.cpp
+47b6ec866f4c2b182669556d35a6353b *src/codegenerator.cpp
 6a6a16bb40e3c9723d88eede05b5985a *src/codegenerator.h
 9795150174c0dae4cb606250e8945696 *src/configurationreader.cpp
 fe5b1aceba7639794779d8b7178ee169 *src/configurationreader.h
@@ -268,7 +268,7 @@ c557f3444b6e51e04e3ec25d8583891a *src/highlight_wrapper.cpp
 f7bf95ab42691be761adc2ac0de85565 *src/htmlgenerator.cpp
 30c54317d0396267608f5c1b6daac8a3 *src/htmlgenerator.h
 71d32afb11ac660bf682482eb9ed8b0b *src/init.c
-7f49838452258678e520cf8c940fc3b8 *src/languagedefinition.cpp
+5a481c91a36abb58cfbc0cc6fb90025f *src/languagedefinition.cpp
 984f966e90011bc5fd3d7da449e6fe9c *src/languagedefinition.h
 9b7df0e851ca3d2368fced02f32a933f *src/latexgenerator.cpp
 aaf2c764aa9b42ec0dd10ce7da5741a7 *src/latexgenerator.h

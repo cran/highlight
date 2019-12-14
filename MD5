@@ -1,4 +1,4 @@
-fb2f30fb4ab847bb92b6bebbbf94d913 *DESCRIPTION
+577cee41cb438d23676d0f40ca1b675a *DESCRIPTION
 6775cdf7ac5e0fa44772d74ba813cc11 *NAMESPACE
 1b940d5596379552b9f9b5b8a64462cd *NEWS
 8d42e1d30cc3055bc73fe9e48b63cc4f *R/00_sizes.R
@@ -239,8 +239,8 @@ d88cbbe8c0d601ad64d377045090b47f *man/styler_assistant_latex.Rd
 6427273854fd5ec50475f64e486420ce *src/ASResource.cpp
 085810c46cccc2e78b9173f23c62b053 *src/ASStreamIterator.cpp
 b5b69c4f37e43ab70c4af3e1c09aa8f7 *src/ASStreamIterator.h
-da9e721752e80bac65fe93ff8190e382 *src/Makevars
-da9e721752e80bac65fe93ff8190e382 *src/Makevars.win
+dbe37947708ee63de527810013ba5fe5 *src/Makevars
+dbe37947708ee63de527810013ba5fe5 *src/Makevars.win
 8086bfd0b16c509a41398cf7cfa44acf *src/Matcher.cpp
 cd9a980038e4885a6aaae8a974d0ff6d *src/Matcher.h
 518a6d1dcd77e00a733580596a6b803a *src/Pattern.cpp

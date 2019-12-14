@@ -5,7 +5,7 @@ Description: Syntax highlighter for R code based
 	on the results of the R parser. Rendering in HTML and latex 
 	markup. Custom Sweave driver performing syntax highlighting 
 	of R code chunks.
-Version: 0.4.7.3
+Version: 0.4.7.4
 Authors@R: c( 
   person("Romain", "Francois",, "romain@r-enthusiasts.com", c("aut", "cre") ),
   person("Andre", "Simon",, "andre.simon1@gmx.de", "ctb" )
@@ -20,9 +20,9 @@ Author: Romain Francois [aut, cre],
   Andre Simon [ctb]
 Maintainer: ORPHANED
 Repository: CRAN
-Date/Publication: 2019-12-01 08:24:40 UTC
+Date/Publication: 2019-12-14 07:56:09 UTC
 X-CRAN-Original-Maintainer: Romain Francois <romain@r-enthusiasts.com>
-Packaged: 2019-12-01 08:12:05 UTC; ripley
+Packaged: 2019-12-14 07:51:16 UTC; ripley
 X-CRAN-Comment: Orphaned on 2017-03-21 as long-standing errors were not
         corrected.  NMU by CRAN team.  Further NMUs 2017-10-04 and
         2019-12-01.

@@ -1,28 +1,33 @@
 Package: highlight
-Type: Package
 Title: Syntax Highlighter
-Description: Syntax highlighter for R code based 
-	on the results of the R parser. Rendering in HTML and latex 
-	markup. Custom Sweave driver performing syntax highlighting 
-	of R code chunks.
-Version: 0.4.7.4
-Authors@R: c( 
-  person("Romain", "Francois",, "romain@r-enthusiasts.com", c("aut", "cre") ),
-  person("Andre", "Simon",, "andre.simon1@gmx.de", "ctb" )
-  )
+Version: 0.5.0
+Authors@R: 
+    c(person(given = "Hadley",
+             family = "Wickham",
+             role = "cre",
+             email = "hadley@rstudio.com"),
+      person(given = "Romain",
+             family = "Francois",
+             role = "aut"),
+      person(given = "Andre",
+             family = "Simon",
+             role = "ctb",
+             email = "andre.simon1@gmx.de"))
+Description: Syntax highlighter for R code based on the results
+    of the R parser. Rendering in HTML and latex markup. Custom Sweave
+    driver performing syntax highlighting of R code chunks.
 License: GPL (>= 3)
-Depends: R (>= 3.1.3)
+URL: https://github.com/hadley/highlight
+BugReports: https://github.com/hadley/highlight/issues
+Depends: R (>= 3.2)
 Imports: grDevices, tools
-URL: https://github.com/romainfrancois/highlight
-BugReports: https://github.com/romainfrancois/highlight/issues
+Encoding: UTF-8
+RoxygenNote: 7.0.2
 NeedsCompilation: yes
-Author: Romain Francois [aut, cre],
+Packaged: 2019-12-15 15:27:35 UTC; hadley
+Author: Hadley Wickham [cre],
+  Romain Francois [aut],
   Andre Simon [ctb]
-Maintainer: ORPHANED
+Maintainer: Hadley Wickham <hadley@rstudio.com>
 Repository: CRAN
-Date/Publication: 2019-12-14 07:56:09 UTC
-X-CRAN-Original-Maintainer: Romain Francois <romain@r-enthusiasts.com>
-Packaged: 2019-12-14 07:51:16 UTC; ripley
-X-CRAN-Comment: Orphaned on 2017-03-21 as long-standing errors were not
-        corrected.  NMU by CRAN team.  Further NMUs 2017-10-04 and
-        2019-12-01.
+Date/Publication: 2019-12-15 16:10:05 UTC

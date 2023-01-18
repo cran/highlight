@@ -50,7 +50,7 @@ ConfigurationReader::ConfigurationReader ( const string & configuration_path )
 		size_t lineBegin;
 		size_t delimPos;
 		string paramName;
-		char suffix[12]; // %05d can write 10 bytes
+		char suffix[13]; // # 1 (#) + 5 * 2 (%05d) + 1 (nul)
 		int i=0;
 
 		while ( getline ( in, line ) )
@@ -69,8 +69,7 @@ ConfigurationReader::ConfigurationReader ( const string & configuration_path )
 						// if parameter already exists, make it unique
 						if ( parameterMap.count ( paramName ) )
 						{
-							// snprintf ( suffix, sizeof ( suffix ), "#%05d", ++i );
-							sprintf ( suffix, "#%05d", ++i );
+							snprintf ( suffix, sizeof ( suffix ), "#%05d", ++i );
 							paramName+=suffix;
 						}
 						parameterNames.push_back ( paramName );

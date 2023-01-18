@@ -181,7 +181,7 @@ namespace highlight
 			char styleName[20];
 			for ( unsigned int i=0;i<keywordClasses.size();i++ )
 			{
-				sprintf ( styleName, "HL Keyword %c", 'A'+i ); //maybe better simple numbering
+				snprintf ( styleName, sizeof ( styleName ), "HL Keyword %c", 'A'+i ); //maybe better simple numbering
 				*out << getCharStyle ( KEYWORD+i, docStyle.getKeywordStyle ( keywordClasses[i] ), string ( styleName ) );
 			}
 			*out << "}}\n";

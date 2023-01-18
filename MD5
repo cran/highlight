@@ -1,7 +1,7 @@
-6e5680458365bf74e82457f94225f37b *DESCRIPTION
+d1f09e6ba755ac26cdf5b90f5e8bba27 *DESCRIPTION
 79bc7b07344e0b869ab379bd01fed968 *NAMESPACE
 1b940d5596379552b9f9b5b8a64462cd *NEWS
-d7195d819174d9aa0dd52f62f6f7ea6c *NEWS.md
+8c6c2e02b0739a583e76d5cc4fa0e19c *NEWS.md
 8d42e1d30cc3055bc73fe9e48b63cc4f *R/00_sizes.R
 99d9489bf601dddd5b60d44ff190c948 *R/SweaveLatexDriver.R
 fc7bcc10dffacbd502627ba282388d8d *R/css.R
@@ -11,7 +11,7 @@ fc7bcc10dffacbd502627ba282388d8d *R/css.R
 c2f2699f1f23e3769a47a4694128767a *R/renderer.R
 7deba3d54539ef227fea124319d95a7a *R/utils.R
 cecb74998238172579019527df27fdc4 *R/zzz.R
-dead322f334d0b1530ae43da9238c79d *README.md
+dee1a77e76c5980da4f53fe2a75e308f *README.md
 6a235e1910dc0c5dc987c7bcbdb59cf6 *inst/highlight/filetypes.conf
 17db7960d61a78253dd3ffde4fe34c1f *inst/highlight/langDefs/4gl.lang
 8251fdda0b7a6a773ef8014cda6d0601 *inst/highlight/langDefs/a4c.lang
@@ -224,7 +224,7 @@ bf477ecb16593936a88c218172608996 *man/formatter_latex.Rd
 8a7d2f3022193be297a84feda3afb8c7 *man/header_html.Rd
 18b81c8db9f63c30494780cdb11fb695 *man/header_latex.Rd
 83f863d7acb26cff0bfdd72c578584d2 *man/highlight-package.Rd
-c55264e76e66a13c262e5a4449dfff86 *man/highlight.Rd
+61cef2fb477bea659886520686613178 *man/highlight.Rd
 cc3ce9a00dfc6886b6277dec80f1d657 *man/highlight_output_types.Rd
 45e410d50b78d0e0c8a001f08176a8d1 *man/highlight_themes.Rd
 e3edc6f2816d0d3f0dc4f737ef68cf99 *man/renderer.Rd
@@ -233,7 +233,7 @@ e3edc6f2816d0d3f0dc4f737ef68cf99 *man/renderer.Rd
 32c5d3b7f3976602b13be34abc4d3ef3 *man/simple_detective.Rd
 92b5d863e228badf5bfe7e4c6d17d080 *man/styler.Rd
 13eee6dde6802cc9b9c8c6f64cd45883 *man/styler_assistant_latex.Rd
-40718567324a72b71d7718ad05954c7b *man/translator_latex.Rd
+69574eb30f28f2c925d7908e52123e49 *man/translator_latex.Rd
 528206004c5f9ccdecc2d3db9547f09e *src/ASBeautifier.cpp
 9c87c5a1f997311686075411c2425569 *src/ASEnhancer.cpp
 8fef34b3ba77065ed4907cced0185252 *src/ASFormatter.cpp
@@ -248,13 +248,13 @@ cd9a980038e4885a6aaae8a974d0ff6d *src/Matcher.h
 f64ae01e7c4c658ebc22132f3acc78be *src/Pattern.h
 d9ce9b18e31c3322bf613de93b2a9a21 *src/ansigenerator.cpp
 f85dd3ea8384a98cb928ddfef63f2c44 *src/ansigenerator.h
-cf05a9905feefe9c09f10f90c7884701 *src/astyle.h
+893e504466f687794876a7bb8f89b868 *src/astyle.h
 4c84dddf5ebf19c0bea749289ad6ff1d *src/bbcodegenerator.cpp
 923c9f90fc65727c296799cf8b7607de *src/bbcodegenerator.h
 0e809b7ab03e968364330cc6f85cbfbb *src/charcodes.h
-47b6ec866f4c2b182669556d35a6353b *src/codegenerator.cpp
+9272ab838983071734736e00dcac96ce *src/codegenerator.cpp
 6a6a16bb40e3c9723d88eede05b5985a *src/codegenerator.h
-9795150174c0dae4cb606250e8945696 *src/configurationreader.cpp
+eda6434e561703b244527a3fbee5945f *src/configurationreader.cpp
 fe5b1aceba7639794779d8b7178ee169 *src/configurationreader.h
 e4814f028988998b173e439db36d8414 *src/ctagsreader.cpp
 e6c23311a52e6ae5f0bf4b597ec38dad *src/ctagsreader.h
@@ -278,7 +278,7 @@ aaf2c764aa9b42ec0dd10ce7da5741a7 *src/latexgenerator.h
 df6138a247449d1db6a881af5e132842 *src/preformatter.cpp
 9b5cc566f3b61bdc27d32982c1b14b04 *src/preformatter.h
 d66d479ca79115c1adf1946c4b0addf7 *src/render.cpp
-7feb2d10ef068f42e4031302d1ffa8b7 *src/rtfgenerator.cpp
+5a76102e1931d5abdda4ac967f86687f *src/rtfgenerator.cpp
 465e2c46e21655f07928b8a0a5d1f830 *src/rtfgenerator.h
 fb362fe6775a9ab9e13728c0bd3cee48 *src/stringtools.cpp
 bd39e12db13ef7af1b6cb03babd23948 *src/stringtools.h

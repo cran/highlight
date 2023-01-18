@@ -27,14 +27,18 @@
 #ifndef ASTYLE_H
 #define ASTYLE_H
 
-//// #ifdef __VMS                    
+//// #ifdef __VMS
 //// #define __USE_STD_IOSTREAM 1
 //// #include <assert>
 //// #else
 //// #include <cassert>
 //// #endif
-      
+
 //// replace assert by a noop to make R CMD check happy
+
+#if defined(assert)
+#undef assert
+#endif
 #define assert(STUFF)
 
 

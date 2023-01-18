@@ -1781,7 +1781,7 @@ namespace highlight
 				else if ( replaceVar=="$linenum" )
 				{
 					char numBuf[10];
-					sprintf ( numBuf, "%d", lineNumber );
+					snprintf ( numBuf, sizeof ( numBuf ), "%d", lineNumber );
 					res+= string ( numBuf );
 				}
 				pos=m->getEndingIndex ( 0 );

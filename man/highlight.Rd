@@ -18,8 +18,8 @@ highlight(
   prompt = getOption("prompt"),
   continue = getOption("continue"),
   initial.spaces = TRUE,
-  size = c("normalsize", "tiny", "scriptsize", "footnotesize", "small", "large",
-    "Large", "LARGE", "huge", "Huge"),
+  size = c("normalsize", "tiny", "scriptsize", "footnotesize", "small", "large", "Large",
+    "LARGE", "huge", "Huge"),
   show_line_numbers = FALSE,
   ...
 )

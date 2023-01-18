@@ -6,8 +6,8 @@
 \usage{
 translator_latex(
   x,
-  size = c("normalsize", "tiny", "scriptsize", "footnotesize", "small", "large",
-    "Large", "LARGE", "huge", "Huge")
+  size = c("normalsize", "tiny", "scriptsize", "footnotesize", "small", "large", "Large",
+    "LARGE", "huge", "Huge")
 )
 }
 \arguments{
